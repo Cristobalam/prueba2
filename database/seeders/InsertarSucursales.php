@@ -16,13 +16,13 @@ class InsertarSucursales extends Seeder
     {
         DB::table('sucursales')->insert(array(
             [
-                'nombre' => 'Sucursal La Florida'
+                'name' => 'Sucursal La Florida'
             ],
             [
-                'nombre' => 'Sucursal San Bernardo'
+                'name' => 'Sucursal San Bernardo'
             ],
             [
-                'nombre' => 'Sucursal Baquedano'
+                'name' => 'Sucursal Baquedano'
             ]
         ));
     }

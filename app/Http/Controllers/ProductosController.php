@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Producto;
+use App\models\Sucursal;
 use DataTables;
 
 class ProductosController extends Controller
@@ -15,11 +16,16 @@ class ProductosController extends Controller
      */
     public function index(Request $request)
     {
-        $data = Producto::all();
+        // $data = Producto::select('*')->join('sucursales', 'productos.sucursale_id', '=', 'sucursales.id')->get();
+        $data = Producto::select('*');
+        // $sucursalx = Sucursal::where('id', $request->sucursal_id);
         if ($request->ajax()) {
-            // $data = Producto::select('*');
             return Datatables::of($data)
                     ->addIndexColumn()
+                    ->addColumn('sucursales',function($row){
+                        return empty ($row->sucursales->name) ? $row->sucursales_id : $row->sucursales->name;
+                         
+                     })
                     ->addColumn('action', function($row){
    
                         $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'"
@@ -34,7 +40,7 @@ class ProductosController extends Controller
                     ->make(true);
         }
         
-        
+        // dd($data);
         return view('productos', compact('data'));
     }
 
@@ -59,7 +65,7 @@ class ProductosController extends Controller
         Producto::updateOrCreate(['id' => $request->id],
                 [
                     'codigo' => $request->codigo,
-                    'nombre' => $request->nombre,
+                    'name' => $request->name,
                     'categoria' => $request->categoria,
                     'sucursale_id' => $request->sucursale_id,
                     'descripcion' => $request->descripcion,

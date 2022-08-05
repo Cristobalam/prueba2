@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -12,7 +12,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 </head>
-<body>
+<body> --}}
+@extends('layout.master')
+@section('title', 'Productos')
+@section('content')
     
 <div class="container" style="padding-top:1%">
     <div style="float: right; padding-bottom:1%" ><a class="btn btn-info" href="javascript:void(0)" id="crearProducto"> Crear Producto</a></div>
@@ -22,13 +25,12 @@
                     <th>Id</th>
                     <th>Codigo</th>
                     <th>Nombre</th>
-                    <th>Categoria</th>
-                    <th>Sucursal</th>
-                    {{-- <td>{{ $data->sucursal->nombre }}</td> --}}
+                    <th>Categoría</th>
+                    <th>sucursal</th>
                     <th>Descripción</th>
                     <th>Cantidad</th>
                     <th>Precio</th>
-                    <th width="140px">Action</th>
+                    <th width="140px">Acción</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,9 +54,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="nombre" class="col-sm-2 control-label">Nombre</label>
+                        <label for="name" class="col-sm-2 control-label">Nombre</label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresar Nombre" value="" required>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingresar Nombre" value="" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -103,7 +105,7 @@
     </div>
 </div>
    
-</body>
+{{-- </body> --}}
    
 <script type="text/javascript">
   $(function () {
@@ -121,13 +123,13 @@
         columns: [
             {data: 'id', name: 'id'},
             {data: 'codigo', name: 'codigo'},
-            {data: 'nombre', name: 'nombre'},
+            {data: 'name', name: 'name'},
             {data: 'categoria', name: 'categoria'},
-            {data: 'sucursale_id', name: 'sucursal'},
+            {data: 'sucursales', name: 'sucursale_id'},
             {data: 'descripcion', name: 'descripcion'},
             {data: 'cantidad', name: 'cantidad'},
             {data: 'precio', name: 'precio'},
-            {data: 'action', name: 'action', orderable: false, searchable: false},
+            {data: 'action', name: 'acción', orderable: false, searchable: false},
         ],
         "language": {
             "sProcessing":     "Procesando...",
@@ -169,7 +171,7 @@
           $('#formulario').modal('show');
           $('#id').val(data.id);
           $('#codigo').val(data.codigo);
-          $('#nombre').val(data.nombre);
+          $('#name').val(data.name);
           $('#categoria').val(data.categoria);
           $('#sucursale_id').val(data.sucursale_id);
           $('#descripcion').val(data.descripcion);
@@ -217,4 +219,5 @@
  });
   });
 </script>
-</html>
+@stop
+{{-- </html> --}}

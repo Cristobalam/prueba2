@@ -9,10 +9,10 @@ class Producto extends Model
 {
     use HasFactory;
     protected $table = 'productos';
-    protected $fillable = ['codigo', 'nombre', 'categoria', 'sucursale_id', 'descripcion', 'cantidad', 'precio'];
+    protected $fillable = ['codigo', 'name', 'categoria', 'sucursale_id', 'descripcion', 'cantidad', 'precio'];
 
-    public function sucursal()
+    public function sucursales()
     {
-        return $this->belongsTo(Sucursal::class, 'sucursale_id');
+        return $this->belongsTo(Sucursal::class, 'sucursale_id', 'id');
     }
 }

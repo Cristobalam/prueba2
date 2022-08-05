@@ -17,7 +17,7 @@ class InsertarProductos extends Seeder
         DB::table('productos')->insert(array(
             [
                 'codigo' => '0001',
-                'nombre' => 'Mouse Genius',
+                'name' => 'Mouse Genius',
                 'categoria' => 'Electrónica',
                 'sucursale_id' => '1',
                 'descripcion' => 'El ratón inalámbrico de 2,4 GHz NX-7000 con un motor de 1.200 dpi.',
@@ -27,7 +27,7 @@ class InsertarProductos extends Seeder
             ],
             [
                 'codigo' => '0002',
-                'nombre' => 'Teclado Logitech',
+                'name' => 'Teclado Logitech',
                 'categoria' => 'Electrónica',
                 'sucursale_id' => '2',
                 'descripcion' => 'Te presentamos el K780, un teclado compacto diseñado para nuestra época multitarea.',
@@ -36,7 +36,7 @@ class InsertarProductos extends Seeder
             ],
 [
                 'codigo' => '0003',
-                'nombre' => 'Memoria RAM SoDimm ddr4',
+                'name' => 'Memoria RAM SoDimm ddr4',
                 'categoria' => 'Electrónica',
                 'sucursale_id' => '3',
                 'descripcion' => 'Mayor velocidad. Más vida útil de la batería. Más capacidad de memoria. Alimente su portátil de nueva generación.',
@@ -45,7 +45,7 @@ class InsertarProductos extends Seeder
             ],
 [
                 'codigo' => '0004',
-                'nombre' => 'Conector RJ45 CAT6',
+                'name' => 'Conector RJ45 CAT6',
                 'categoria' => 'Electrónica',
                 'sucursale_id' => '1',
                 'descripcion' => 'Conector RJ45 CAT6 10 unidades.',
@@ -54,7 +54,7 @@ class InsertarProductos extends Seeder
             ],
 [
                 'codigo' => '0005',
-                'nombre' => 'Cable patch cord UTP CAT5E',
+                'name' => 'Cable patch cord UTP CAT5E',
                 'categoria' => 'Electrónica',
                 'sucursale_id' => '2',
                 'descripcion' => 'Cable patch cord CAT5E + Conectores RJ45 0.5m - 100% Cobre.',
@@ -63,7 +63,7 @@ class InsertarProductos extends Seeder
             ],
 [
                 'codigo' => '0006',
-                'nombre' => 'Adaptador Micro HDMI a HDMI-M',
+                'name' => 'Adaptador Micro HDMI a HDMI-M',
                 'categoria' => 'Electrónica',
                 'sucursale_id' => '3',
                 'descripcion' => 'El adaptador digital permite convertir la señal de video HDMI a HDMI-M.',
@@ -72,7 +72,7 @@ class InsertarProductos extends Seeder
             ],
 [
                 'codigo' => '0007',
-                'nombre' => 'Unidad SSD 240GB Crucial',
+                'name' => 'Unidad SSD 240GB Crucial',
                 'categoria' => 'Electrónica',
                 'sucursale_id' => '1',
                 'descripcion' => 'La manera más sencilla de obtener toda la velocidad de una nueva computadora sin el precio.',
@@ -81,7 +81,7 @@ class InsertarProductos extends Seeder
             ],
 [
                 'codigo' => '0008',
-                'nombre' => 'Extensor cable PCI-E 8 pin',
+                'name' => 'Extensor cable PCI-E 8 pin',
                 'categoria' => 'Electrónica',
                 'sucursale_id' => '2',
                 'descripcion' => 'Extensor cable PCI-E 8 pin a PCI-E 6+2 Marca Silverstone.',
@@ -90,7 +90,7 @@ class InsertarProductos extends Seeder
             ],
 [
                 'codigo' => '0009',
-                'nombre' => 'Pendrive 16GB USB 2.0',
+                'name' => 'Pendrive 16GB USB 2.0',
                 'categoria' => 'Electrónica',
                 'sucursale_id' => '3',
                 'descripcion' => 'Lleve consigo sus archivos favoritos en la ultracompacta y portátil unidad flash USB Cruzer Blade.',
@@ -99,7 +99,7 @@ class InsertarProductos extends Seeder
             ],
 [
                 'codigo' => '0010',
-                'nombre' => 'Memoria 4GB SDHC / Clase 4',
+                'name' => 'Memoria 4GB SDHC / Clase 4',
                 'categoria' => 'Electrónica',
                 'sucursale_id' => '1',
                 'descripcion' => 'Las tarjetas SDHC, ofrecen un amplio volumen de almacenamiento de datos y un optimo rendimiento de grabación.',
