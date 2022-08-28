@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <label for="sucursale_id" class="col-sm-2 control-label">Sucursal</label>
                         <div class="col-sm-12">
-                            <select name="sucursale_id" id="sucursale_id" class="form-control">
+                            <select name="sucursale_id" id="sucursale_id" class="form-control" required min="1" max="3">
                             <option selected>Seleccione una Opción</option>
                             <option value="1">Sucursal La Florida</option>
                             <option value="2">Sucursal San Bernardo</option>
@@ -86,13 +86,13 @@
                     <div class="form-group">
                         <label for="cantidad" class="col-sm-2 control-label">Cantidad</label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="Ingresar Cantidad" value="" required>
+                            <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Ingresar Cantidad" value="" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="precio" class="col-sm-2 control-label">Precio</label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="precio" name="precio" placeholder="Ingresar Precio" value="" required>
+                            <input type="number" class="form-control" id="precio" name="precio" placeholder="Ingresar Precio" value="" required>
                         </div>
                     </div>
       
@@ -108,6 +108,9 @@
 {{-- </body> --}}
    
 <script type="text/javascript">
+$(document).ready(function() {
+$("#prodForm").validate();
+});
   $(function () {
     $.ajaxSetup({
           headers: {
@@ -180,6 +183,7 @@
       })
    });
    $('#guardar').click(function (e) {
+    if ($('#prodForm').valid() == true) {
         e.preventDefault();
         $(this).html('Enviando..');
     
@@ -192,6 +196,7 @@
      
               $('#prodForm').trigger("reset");
               $('#formulario').modal('hide');
+              $('#guardar').html('Guardar');
               table.draw();
          
           },
@@ -200,13 +205,14 @@
               $('#guardar').html('Guardar Cambios');
           }
       });
+    }
+        
     });
     $('body').on('click', '.deleteProd', function () {
      
      var id = $(this).data("id");
-     confirm("¿Estás seguro de eliminar este producto?");
-   
-     $.ajax({
+     if (confirm("¿Estás seguro de eliminar este producto?") == true ) {
+        $.ajax({
          type: "DELETE",
          url: "{{ route('productos.store') }}"+'/'+id,
          success: function (data) {
@@ -216,7 +222,18 @@
              console.log('Error:', data);
          }
      });
- });
+     }
+     
+    });
+    jQuery.extend(jQuery.validator.messages, {
+    required: "Este campo es requerido.",
+    number: "Por favor ingrese solo números.",
+    digits: "Por favor ingrese sólo dígitos.",
+    maxlength: jQuery.validator.format("Por favor ingrese 5 carácteres como máximo."),
+    minlength: jQuery.validator.format("Por favor ingrese 5 carácteres como mínimo."),
+    max: jQuery.validator.format("Por favor seleccione una opción válida."),
+    min: jQuery.validator.format("Por favor seleccione una opción válida.")
+    });
   });
 </script>
 @stop
